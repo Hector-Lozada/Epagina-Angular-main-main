@@ -1,7 +1,6 @@
-// src/app/page/mi-api/lists/lists.component.ts
 import { Component, OnInit } from '@angular/core';
-import { Fashion } from './interfaces/fashion.interface';
-import { FashionService } from './services/fashion.service';
+import { Shein } from './interfaces/shein.interface'; // Asegúrate de importar la interfaz Shein
+import { FashionService } from './services/shein.service';
 import { FashionTableComponent } from "./Table/table.component";
 
 @Component({
@@ -12,8 +11,8 @@ import { FashionTableComponent } from "./Table/table.component";
   styleUrls: ['./lists.component.css']
 })
 export class ListsComponent implements OnInit {
-  productos: Fashion[] = [];
-  selectedProducto: Fashion | null = null; // Para el modal
+  productos: Shein[] = []; // Cambiado de Fashion a Shein
+  selectedProducto: Shein | null = null; // Cambiado de Fashion a Shein
 
   constructor(private fashionService: FashionService) { }
 
@@ -24,24 +23,24 @@ export class ListsComponent implements OnInit {
   cargarProductos(): void {
     this.fashionService.getFashions().subscribe({
       next: (data) => {
-        this.productos = data.fashion; // Ajustar según el formato de la respuesta
+        this.productos = data.shein; // Asegúrate de usar 'shein' en lugar de 'fashion' en la respuesta
       },
       error: (err) => console.error('Error al cargar productos:', err)
     });
   }
 
-  agregarProducto(producto: Fashion): void {
+  agregarProducto(producto: Shein): void { // Cambiado de Fashion a Shein
     this.fashionService.createFashion(producto).subscribe({
       next: () => this.cargarProductos(),
       error: (err) => console.error('Error al agregar producto:', err)
     });
   }
 
-  editarProducto(producto: Fashion): void {
+  editarProducto(producto: Shein): void { // Cambiado de Fashion a Shein
     this.selectedProducto = producto; // Mostrar en el modal
   }
 
-  actualizarProducto(producto: Fashion): void {
+  actualizarProducto(producto: Shein): void { // Cambiado de Fashion a Shein
     if (producto._id) {
       this.fashionService.updateFashion(producto._id, producto).subscribe({
         next: () => {

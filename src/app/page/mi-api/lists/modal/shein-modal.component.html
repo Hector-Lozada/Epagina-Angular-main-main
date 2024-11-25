@@ -1,0 +1,75 @@
+<div class="modal">
+  <div class="modal-content">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <h2>{{ fashion ? 'Editar' : 'Crear' }} Producto</h2>
+
+      <!-- Nombre del producto -->
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text" class="form-control" formControlName="nombre">
+      </div>
+
+      <!-- Categoría -->
+      <div class="form-group">
+        <label for="categoria">Categoría</label>
+        <input id="categoria" type="text" class="form-control" formControlName="categoria">
+      </div>
+
+      <!-- Precio -->
+      <div class="form-group">
+        <label for="precio">Precio</label>
+        <input id="precio" type="number" class="form-control" formControlName="precio">
+      </div>
+
+      <!-- Descripción -->
+      <div class="form-group">
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" class="form-control" formControlName="descripcion" rows="3"></textarea>
+      </div>
+
+      <!-- Stock -->
+      <div class="form-group">
+        <label for="stock">Stock</label>
+        <input id="stock" type="number" class="form-control" formControlName="stock">
+      </div>
+
+      <!-- Colores -->
+      <div class="form-group">
+        <label for="colores">Colores (uno por línea)</label>
+        <textarea id="colores" class="form-control" formControlName="colores" rows="3"></textarea>
+      </div>
+
+      <!-- Tallas -->
+      <div class="form-group">
+        <label for="tallas">Tallas (uno por línea)</label>
+        <textarea id="tallas" class="form-control" formControlName="tallas" rows="3"></textarea>
+      </div>
+
+      <!-- Imágenes -->
+      <div class="form-group">
+        <label for="imagenes">Imágenes (URLs, uno por línea)</label>
+        <textarea id="imagenes" class="form-control" formControlName="imagenes" rows="4"></textarea>
+      </div>
+
+      <!-- Calificación -->
+      <div class="form-group">
+        <label for="calificacion">Calificación</label>
+        <input id="calificacion" type="number" class="form-control" formControlName="calificacion">
+      </div>
+
+      <!-- Reseñas -->
+      <div class="form-group">
+        <label for="reseñas">Reseñas (uno por línea: usuario, comentario, rating)</label>
+        <textarea id="reseñas" class="form-control" formControlName="reseñas" rows="4"></textarea>
+      </div>
+
+      <!-- Botones de acción -->
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancelar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
+          {{ fashion ? 'Actualizar' : 'Crear' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

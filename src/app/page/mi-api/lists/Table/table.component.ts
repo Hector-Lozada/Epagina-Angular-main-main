@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FashionService } from '../services/fashion.service';
-import { Fashion } from '../interfaces/fashion.interface';
-import { FashionModalComponent } from '../modal/fashion-modal.component';
+import { FashionService } from '../services/shein.service';
+import { Shein } from '../interfaces/shein.interface'; // Asegúrate de importar la interfaz Shein
+import { FashionModalComponent } from '../modal/shein-modal.component';
 
 @Component({
-  selector: 'app-fashion-table',
+  selector: 'app-shein-table',
   standalone: true,
   imports: [CommonModule, FashionModalComponent],
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
 export class FashionTableComponent implements OnInit {
-  fashions: Fashion[] = [];
+  fashions: Shein[] = []; // Actualiza el tipo de datos aquí para que coincida con Shein
   showModal = false;
-  selectedFashion: Fashion | null = null;
+  selectedFashion: Shein | null = null; // Actualiza el tipo aquí también
 
   constructor(private fashionService: FashionService) {}
 
@@ -26,7 +26,7 @@ export class FashionTableComponent implements OnInit {
     this.fashionService.getFashions().subscribe(
       response => {
         console.log(response); // Verifica que los datos están siendo recibidos
-        this.fashions = response.fashion;
+        this.fashions = response.shein; // Asegúrate de usar 'shein' en lugar de 'fashion'
       },
       error => {
         console.error('Error al cargar los productos:', error);
@@ -35,7 +35,7 @@ export class FashionTableComponent implements OnInit {
   }
   
 
-  openModal(fashion?: Fashion): void {
+  openModal(fashion?: Shein): void { // Usa 'Shein' aquí en lugar de 'Fashion'
     this.selectedFashion = fashion || null;
     this.showModal = true;
     console.log('Modal abierto:', this.showModal);
@@ -46,7 +46,7 @@ export class FashionTableComponent implements OnInit {
     this.selectedFashion = null;
   }
 
-  onSave(fashion: Fashion): void {
+  onSave(fashion: Shein): void { // Usa 'Shein' aquí en lugar de 'Fashion'
     if (fashion._id) {
       this.fashionService.updateFashion(fashion._id, fashion).subscribe(
         () => {
