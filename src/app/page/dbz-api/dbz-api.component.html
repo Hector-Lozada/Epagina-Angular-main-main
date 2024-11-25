@@ -1,0 +1,7 @@
+<div class="position-absolute top-0 start-0 w-100 h-100" style="z-index: -2; transform: rotate(180deg); background: radial-gradient(60% 120% at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(252, 205, 238, 0.5) 100%);">
+</div>
+<app-search (eventEmitirTermino)="searchPersonaje($event)"></app-search>
+<app-paginacion (eventNewPersonaje)="setNewPersonaje($event)"></app-paginacion>
+<app-dbz [dragonPer]="dbzPersonajes"></app-dbz>
+<app-paginacion (eventNewPersonaje)="setNewPersonaje($event)"></app-paginacion>
+

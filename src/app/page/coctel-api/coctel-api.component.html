@@ -1,0 +1,5 @@
+<div class="position-absolute top-0 start-0 min-vh-100 w-100" style="max-height: 100vh; z-index: -2; transform: rotate(180deg); background: radial-gradient(60% 120% at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(252, 205, 238, 0.5) 100%);">
+</div>
+<app-search (eventEmitTermino)="searchCoctel($event)"></app-search>
+<app-paginacion (eventNewCocteles)="setNewCocteles($event)"></app-paginacion>
+<app-card [cocteles]="coctelAll"></app-card>

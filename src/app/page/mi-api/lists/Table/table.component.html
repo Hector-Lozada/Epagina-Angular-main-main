@@ -1,0 +1,40 @@
+<div class="fashion-container">
+    <div class="header">
+      <h2>Gestión de Productos</h2>
+      <button class="btn btn-primary" (click)="openModal()"><i class="bi bi-plus-lg"> Agregar Producto</i></button>
+    </div>
+  
+    <table class="fashion-table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Categoría</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>Calificación</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of fashions">
+          <td>{{product.nombre}}</td>
+          <td>{{product.categoria}}</td>
+          <td>{{product.precio | currency}}</td>
+          <td>{{product.stock}}</td>
+          <td>{{product.calificacion}}</td>
+          <td class="actions">
+            <button class="btn btn-primary" (click)="openModal(product)"><i class="bi bi-pencil-square"> Editar</i></button>
+            <button class="btn btn-primary" (click)="deleteFashion(product._id)"><i class="bi bi-trash3-fill"> Eliminar</i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <app-fashion-modal
+      *ngIf="showModal"
+      [fashion]="selectedFashion"
+      (save)="onSave($event)"
+      (cancel)="closeModal()">
+    </app-fashion-modal>
+  </div>
+  
