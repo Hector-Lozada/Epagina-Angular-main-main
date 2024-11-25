@@ -14,8 +14,6 @@
         <th>Precio</th>
         <th>Stock</th>
         <th>Calificación</th>
-        <th>Colores</th>
-        <th>Tallas</th>
         <th>Acciones</th>
       </tr>
     </thead>
@@ -26,13 +24,15 @@
         <td>{{ product.precio | currency }}</td>
         <td>{{ product.stock }}</td>
         <td>{{ product.calificacion }}</td>
-        <td>{{ product.colores.join(', ') }}</td> <!-- Muestra los colores -->
-        <td>{{ product.tallas.join(', ') }}</td> <!-- Muestra las tallas -->
         <td class="actions">
           <button class="btn btn-primary" (click)="openModal(product)">
             <i class="bi bi-pencil-square"> Editar</i>
           </button>
-          <button class="btn btn-danger" (click)="deleteFashion(product._id)">
+          <button
+            *ngIf="product._id"
+            class="btn btn-danger"
+            (click)="deleteFashion(product._id)"
+          >
             <i class="bi bi-trash3-fill"> Eliminar</i>
           </button>
         </td>
@@ -45,6 +45,7 @@
     *ngIf="showModal"
     [fashion]="selectedFashion"
     (save)="onSave($event)"
-    (cancel)="closeModal()">
+    (cancel)="closeModal()"
+  >
   </app-fashion-modal>
 </div>

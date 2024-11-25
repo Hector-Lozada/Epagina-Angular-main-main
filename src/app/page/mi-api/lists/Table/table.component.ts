@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FashionService } from '../services/shein.service';
-import { Shein } from '../interfaces/shein.interface'; // Asegúrate de importar la interfaz Shein
-import { FashionModalComponent } from '../modal/shein-modal.component';
+import { FashionService } from '../services/amazon.service';  // Asegúrate de importar el servicio correcto
+import { AmazonProduct } from '../interfaces/amazon.interface';  // Asegúrate de importar la interfaz correcta
+import { FashionModalComponent } from '../modal/amazon-modal.component';
 
 @Component({
-  selector: 'app-shein-table',
+  selector: 'app-amazon-table',
   standalone: true,
   imports: [CommonModule, FashionModalComponent],
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class FashionTableComponent implements OnInit {
-  fashions: Shein[] = []; // Actualiza el tipo de datos aquí para que coincida con Shein
+export class AmazonTableComponent implements OnInit {
+  fashions: AmazonProduct[] = []; // Actualizado a 'Amazon' en lugar de 'Shein'
   showModal = false;
-  selectedFashion: Shein | null = null; // Actualiza el tipo aquí también
+  selectedFashion: AmazonProduct | null = null; // Actualizado a 'Amazon' en lugar de 'Shein'
 
-  constructor(private fashionService: FashionService) {}
+  constructor(private fashionService: FashionService) { }
 
   ngOnInit(): void {
     this.loadFashions();
@@ -26,16 +26,15 @@ export class FashionTableComponent implements OnInit {
     this.fashionService.getFashions().subscribe(
       response => {
         console.log(response); // Verifica que los datos están siendo recibidos
-        this.fashions = response.shein; // Asegúrate de usar 'shein' en lugar de 'fashion'
+        this.fashions = response.amazon; // Asegúrate de usar 'amazon' en lugar de 'shein'
       },
       error => {
         console.error('Error al cargar los productos:', error);
       }
     );
   }
-  
 
-  openModal(fashion?: Shein): void { // Usa 'Shein' aquí en lugar de 'Fashion'
+  openModal(fashion?: AmazonProduct): void { // Usa 'Amazon' aquí en lugar de 'Shein'
     this.selectedFashion = fashion || null;
     this.showModal = true;
     console.log('Modal abierto:', this.showModal);
@@ -46,7 +45,7 @@ export class FashionTableComponent implements OnInit {
     this.selectedFashion = null;
   }
 
-  onSave(fashion: Shein): void { // Usa 'Shein' aquí en lugar de 'Fashion'
+  onSave(fashion: AmazonProduct): void { // Usa 'Amazon' aquí en lugar de 'Shein'
     if (fashion._id) {
       this.fashionService.updateFashion(fashion._id, fashion).subscribe(
         () => {
