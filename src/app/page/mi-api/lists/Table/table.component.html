@@ -1,37 +1,37 @@
-<div class="fashion-container">
+<div class="netflix-container">
   <div class="header">
-    <h2>Gestión de Productos</h2>
+    <h2>Gestión de Contenidos de Netflix</h2>
     <button class="btn btn-primary" (click)="openModal()">
-      <i class="bi bi-plus-lg"> Agregar Producto</i>
+      <i class="bi bi-plus-lg"> Agregar Contenido</i>
     </button>
   </div>
 
-  <table class="fashion-table">
+  <table class="netflix-table">
     <thead>
       <tr>
-        <th>Nombre</th>
-        <th>Categoría</th>
-        <th>Precio</th>
-        <th>Stock</th>
+        <th>Título</th>
+        <th>Género</th>
+        <th>Duración</th>
+        <th>Estreno</th>
         <th>Calificación</th>
         <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let product of fashions">
-        <td>{{ product.nombre }}</td>
-        <td>{{ product.categoria }}</td>
-        <td>{{ product.precio | currency }}</td>
-        <td>{{ product.stock }}</td>
-        <td>{{ product.calificacion }}</td>
+      <tr *ngFor="let content of netflixItems">
+        <td>{{ content.titulo }}</td>
+        <td>{{ content.genero }}</td>
+        <td>{{ content.duracion }} min</td>
+        <td>{{ content.estreno | date:'shortDate' }}</td>
+        <td>{{ content.calificacion || 0 }}</td>
         <td class="actions">
-          <button class="btn btn-primary" (click)="openModal(product)">
+          <button class="btn btn-primary" (click)="openModal(content)">
             <i class="bi bi-pencil-square"> Editar</i>
           </button>
           <button
-            *ngIf="product._id"
+            *ngIf="content._id"
             class="btn btn-danger"
-            (click)="deleteFashion(product._id)"
+            (click)="deleteNetflixItem(content._id)"
           >
             <i class="bi bi-trash3-fill"> Eliminar</i>
           </button>
@@ -40,12 +40,12 @@
     </tbody>
   </table>
 
-  <!-- Modal de edición de producto -->
-  <app-fashion-modal
+  <!-- Modal de edición de contenido -->
+  <app-netflix-modal
     *ngIf="showModal"
-    [fashion]="selectedFashion"
+    [netflixItem]="selectedNetflixItem"
     (save)="onSave($event)"
     (cancel)="closeModal()"
   >
-  </app-fashion-modal>
+  </app-netflix-modal>
 </div>

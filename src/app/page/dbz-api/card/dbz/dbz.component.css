@@ -36,15 +36,15 @@
 
 /* Botón para más información */
 .btn-primary {
-  background-color: #ff0077;
-  border-color: #ff0077;
+  background-color: #000000;
+  border-color: #000000;
   border-radius: 25px;
   transition: background-color 0.2s;
 }
 
 .btn-primary:hover {
-  background-color: #ff7ab8;
-  border-color: #ff0077;
+  background-color: #aaaaaa;
+  border-color: #000000;
 }
 
 /* Estilo para el SVG de carga */
@@ -62,7 +62,7 @@ svg {
 /* Estilo para el estado sin personajes */
 .ng-template p {
   font-size: 1rem;
-  color: #ff0000;
+  color: #000000;
   text-align: center;
   font-weight: bold;
 }

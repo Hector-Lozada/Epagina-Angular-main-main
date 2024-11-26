@@ -19,7 +19,7 @@
 
 /* Estilo de la cabecera del modal */
 .modal-header {
-  background-color: #fa3390; /* Color de fondo azul */
+  background-color: #000000; /* Color de fondo azul */
   color: white; /* Texto en blanco */
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -84,8 +84,8 @@
 }
 
 .modal-footer .btn-secondary {
-  background-color: #ff0077;
-  border-color: #ff0077;
+  background-color: #000000;
+  border-color: #000000;
   color: white;
   padding: 10px 20px;
   border-radius: 25px;
@@ -93,7 +93,7 @@
 }
 
 .modal-footer .btn-secondary:hover {
-  background-color: #ff64ac; /* Color más oscuro al pasar el ratón */
+  background-color: #9b999a; /* Color más oscuro al pasar el ratón */
 }
 
 /* General */

@@ -6,28 +6,28 @@
 
 .form-control {
   border-radius: 5px 0 0 5px;
-  border: 1px solid #ff0077;
+  border: 1px solid #000000;
   padding: 10px 15px;
   transition: border-color 0.3s ease;
 }
 
 .form-control:focus {
-  border-color: #ff0077;
+  border-color: #000000;
   box-shadow: none;
 }
 
 .btn-outline-primary {
   border-radius: 0 5px 5px 0;
   padding: 10px 20px;
-  border-color: #ff0077;
-  color: #ff0077;
+  border-color: #000000;
+  color: #000000;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-outline-primary:hover {
-  background-color: #ff0077;
+  background-color: #000000;
   color: white;
-  border-color: #ff0077;
+  border-color: #000000;
 }
 
 /* Icon in Button */

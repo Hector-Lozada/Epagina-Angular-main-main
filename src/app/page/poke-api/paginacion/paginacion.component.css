@@ -16,7 +16,7 @@
   display: block;
   padding: 10px 20px;
   color: #ffffff;
-  background-color: #ff0077;
+  background-color: #000000;
   border: 1px solid #dee2e6;
   border-radius: 5px;
   text-decoration: none;
@@ -26,14 +26,14 @@
 /* Hover and active states */
 .page-link:hover {
   color: #fff;
-  background-color: #e992ba;
-  border-color: #ff0077;
+  background-color: #928e90;
+  border-color: #000000;
 }
 
 .page-item.disabled .page-link {
   color: #ffffff;
   pointer-events: none;
-  background-color: #dd97b8;
+  background-color: #868686;
   border-color: #dee2e6;
 }
 

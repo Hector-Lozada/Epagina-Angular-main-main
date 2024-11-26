@@ -1,82 +1,83 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FashionService } from '../services/amazon.service';  // Asegúrate de importar el servicio correcto
-import { AmazonProduct } from '../interfaces/amazon.interface';  // Asegúrate de importar la interfaz correcta
-import { FashionModalComponent } from '../modal/amazon-modal.component';
+import { NetflixService } from '../services/netflix.service'; // Servicio actualizado a 'NetflixService'
+import { Netflix } from '../interfaces/netflix.interface'; // Interfaz actualizada a 'NetflixItem'
+import { NetflixModalComponent } from '../modal/netflix-modal.component'; // Componente modal actualizado
 
 @Component({
-  selector: 'app-amazon-table',
+  selector: 'app-netflix-table',
   standalone: true,
-  imports: [CommonModule, FashionModalComponent],
+  imports: [CommonModule, NetflixModalComponent],
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class AmazonTableComponent implements OnInit {
-  fashions: AmazonProduct[] = []; // Actualizado a 'Amazon' en lugar de 'Shein'
+export class NetflixTableComponent implements OnInit {
+  netflixItems: Netflix[] = []; // Arreglo actualizado a 'NetflixItem'
   showModal = false;
-  selectedFashion: AmazonProduct | null = null; // Actualizado a 'Amazon' en lugar de 'Shein'
+  selectedNetflixItem: Netflix | null = null; // Elemento seleccionado actualizado a 'NetflixItem'
 
-  constructor(private fashionService: FashionService) { }
+  constructor(private netflixService: NetflixService) {}
 
   ngOnInit(): void {
-    this.loadFashions();
+    this.loadNetflixItems();
   }
 
-  loadFashions(): void {
-    this.fashionService.getFashions().subscribe(
+  loadNetflixItems(): void {
+    this.netflixService.getNetflixItems().subscribe(
       response => {
-        console.log(response); // Verifica que los datos están siendo recibidos
-        this.fashions = response.amazon; // Asegúrate de usar 'amazon' en lugar de 'shein'
+        console.log(response); // Verifica que los datos están siendo recibidos correctamente
+        this.netflixItems = response.netflix; // Asegúrate de que 'netflix' es la propiedad correcta
       },
       error => {
-        console.error('Error al cargar los productos:', error);
+        console.error('Error al cargar los elementos:', error);
       }
     );
   }
+  
 
-  openModal(fashion?: AmazonProduct): void { // Usa 'Amazon' aquí en lugar de 'Shein'
-    this.selectedFashion = fashion || null;
+  openModal(netflixItem?: Netflix): void {
+    this.selectedNetflixItem = netflixItem || null;
     this.showModal = true;
     console.log('Modal abierto:', this.showModal);
   }
 
   closeModal(): void {
     this.showModal = false;
-    this.selectedFashion = null;
+    this.selectedNetflixItem = null;
   }
 
-  onSave(fashion: AmazonProduct): void { // Usa 'Amazon' aquí en lugar de 'Shein'
-    if (fashion._id) {
-      this.fashionService.updateFashion(fashion._id, fashion).subscribe(
+  onSave(netflixItem: Netflix): void {
+    if (netflixItem._id) {
+      this.netflixService.updateNetflixItem(netflixItem._id, netflixItem).subscribe(
         () => {
-          this.loadFashions();
+          this.loadNetflixItems();
           this.closeModal();
         },
         error => {
-          console.error('Error al actualizar el producto:', error);
+          console.error('Error al actualizar el elemento:', error);
         }
       );
     } else {
-      this.fashionService.createFashion(fashion).subscribe(
+      this.netflixService.createNetflixItem(netflixItem).subscribe(
         () => {
-          this.loadFashions();
+          this.loadNetflixItems();
           this.closeModal();
         },
         error => {
-          console.error('Error al crear el producto:', error);
+          console.error('Error al crear el elemento:', error);
         }
       );
     }
   }
 
-  deleteFashion(id: string): void {
-    if (confirm('¿Está seguro de eliminar este producto?')) {
-      this.fashionService.deleteFashion(id).subscribe(
+  deleteNetflixItem(id: string): void {
+    if (confirm('¿Está seguro de eliminar este elemento?')) {
+      this.netflixService.deleteNetflixItem(id).subscribe(
         () => {
-          this.loadFashions();
+          this.loadNetflixItems();
         },
         error => {
-          console.error('Error al eliminar el producto:', error);
+          console.error('Error al eliminar el elemento:', error);
         }
       );
     }

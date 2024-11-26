@@ -46,16 +46,16 @@ body {
 }
 
 .btn {
-  background-color: #ff0077;
+  background-color: #000000;
   color: white;
   padding: 10px 20px;
   border-radius: 25px;
-  border-color: #ff0077;
+  border-color: #000000;
   transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #f57db5;
+  background-color: #929292;
 }
 
 .alert {

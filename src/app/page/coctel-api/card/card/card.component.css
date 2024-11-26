@@ -35,7 +35,7 @@
 
 /* Botón de 'Más info' */
 .btn-primary {
-  background-color: #ff0077;
+  background-color: #000000;
   border: none;
   border-radius: 25px;
   transition: background-color 0.3s ease;
@@ -43,7 +43,7 @@
 }
 
 .btn-primary:hover {
-  background-color: #fc70b1;
+  background-color: #a39ea1;
 }
 
 /* Spinner de carga SVG */

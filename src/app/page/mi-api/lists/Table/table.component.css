@@ -12,25 +12,25 @@
     margin-bottom: 20px;
   }
   
-  .fashion-table {
+  .netflix-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
   }
   
-  .fashion-table th,
-  .fashion-table td {
+  .netflix-table th,
+  .netflix-table td {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
   }
   
-  .fashion-table th {
+  .netflix-table th {
     background-color: #f8f9fa;
     font-weight: bold;
   }
   
-  .fashion-table tr:hover {
+  .netflix-table tr:hover {
     background-color: #f5f5f5;
   }
   
@@ -44,14 +44,14 @@
     font-size: 12px;
   }
   .btn {
-    background-color: #ff0077;
+    background-color: #000000;
     color: white;
     padding: 10px 20px;
     border-radius: 25px;
-    border-color: #ff0077;
+    border-color: #000000;
     transition: background-color 0.3s ease;
   }
   
   .btn:hover {
-    background-color: #f57db5;
+    background-color: #929292;
   }

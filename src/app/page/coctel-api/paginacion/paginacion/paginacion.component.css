@@ -29,22 +29,22 @@
   border-radius: 5px; /* Bordes redondeados */
   padding: 10px 15px; /* Espaciado interno */
   color: #ffffff; /* Color del texto */
-  background-color: #ff0077; /* Fondo blanco */
-  border: 1px solid #ff0077; /* Borde azul */
+  background-color: #000000; /* Fondo blanco */
+  border: 1px solid #000000; /* Borde azul */
   transition: background-color 0.3s, color 0.3s; /* Transiciones suaves para el fondo y el texto */
 }
 
 /* Efecto de hover para los enlaces de las páginas */
 .page-link:hover {
-  background-color: #ff94c6; /* Fondo azul al pasar el ratón */
+  background-color: #ccc0c6; /* Fondo azul al pasar el ratón */
   color: #ffffff; /* Texto blanco al pasar el ratón */
 }
 
 /* Estilo para la página activa */
 .page-link.active {
-  background-color: #b95e89; /* Fondo azul para la página activa */
+  background-color: #b4b2b3; /* Fondo azul para la página activa */
   color: white; /* Texto blanco para la página activa */
-  border: 1px solid #ff0077; /* Borde más oscuro para la página activa */
+  border: 1px solid #000000; /* Borde más oscuro para la página activa */
 }
 
 /* Estilo para pantallas pequeñas */
